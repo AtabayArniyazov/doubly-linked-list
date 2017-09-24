@@ -5,6 +5,7 @@ class LinkedList {
         this.length = 0;
         this._head = null;
         this._tail = null;
+        return this;
     }
 
     append(data) {
@@ -61,10 +62,10 @@ class LinkedList {
         this.length = 0;
         this._head = null;
         this._tail = null;
+        return this;
     }
 
     deleteAt(index) {
-
         for (var i = 0; i < this.length; i++) {
             if (i === index) {
                 this.removeChild(i);
@@ -73,11 +74,22 @@ class LinkedList {
     }
 
     reverse() {
-        // this.reverse();
+        // this.reverse();       
     }
 
     indexOf(data) {
-        // this.indexOf(data);
+        var curr = this._head;
+        var ind = 0;
+        while (curr) {
+            if (curr.data === data) {
+                return ind;
+            } else {
+                curr = curr.next;
+                ++ind;
+            }
+        }
+        
+        return -1;
     }
 }
 
